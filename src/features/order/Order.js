@@ -20,7 +20,9 @@ import DateFnsUtils from "@date-io/date-fns";
 import { selectCart } from "../cart/cartSlice";
 
 import { CartItem } from "../../components/cartItem";
-import { LocationAutocomplete } from "../../components/locationAutocomplete";
+
+// Uses google api (free version expired)
+// import { LocationAutocomplete } from "../../components/locationAutocomplete";
 import { Summary } from "../../components/summary";
 import { validateEmail, EmailInput } from "../../components/emailInput";
 
@@ -62,8 +64,8 @@ export const Order = () => {
     setEmail(user.email);
   }, [user.name, user.surname, user.email]);
 
-  const handleLocationChange = (value) => {
-    setLocation(value);
+  const handleLocationChange = (e) => {
+    setLocation(e.target.value);
   };
 
   const handleNameChange = (e) => {
@@ -147,7 +149,16 @@ export const Order = () => {
           <Typography variant="h6" className={classes.title}>
             Shipping adress
           </Typography>
-          <LocationAutocomplete changeLocation={handleLocationChange} />
+          {/* <LocationAutocomplete changeLocation={handleLocationChange} /> */}
+          <TextField
+            required
+            id="location"
+            label="Location"
+            onChange={handleLocationChange}
+            value={location}
+            fullWidth
+            className={classes.field}
+          />
         </div>
         <div>
           <Typography variant="h6" className={classes.title}>
