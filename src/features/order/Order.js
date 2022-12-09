@@ -18,7 +18,6 @@ import {
 import DateFnsUtils from "@date-io/date-fns";
 
 import { selectCart } from "../cart/cartSlice";
-
 import { CartItem } from "../../components/cartItem";
 
 // Uses google api (free version expired)
